@@ -76,7 +76,7 @@ services:
 
 Dockerfileにuser_id/group_idの変更を記載します。
 
-```:Dockerfile
+```
 ARG NODE_VERSION
 
 FROM node:${NODE_VERSION}-alpine

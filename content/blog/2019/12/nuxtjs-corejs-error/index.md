@@ -19,7 +19,7 @@ description: "this is meta description"
 
 # taxonomies
 categories: 
-  - "プログラミング"
+  - "Nuxt.js"
 tags:
   - "Nuxt.js"
   - "Vue.js"
