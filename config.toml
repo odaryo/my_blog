@@ -1,7 +1,7 @@
 ######################## default configuration ####################
-baseURL = "https://examplesite.com"
+baseURL = "https://blog.odaryo.com"
 languageCode = "en-us"
-title = "Liva | Personal blog template"
+title = "Odaryo's blog"
 theme = "liva-hugo"
 summaryLength = "10"
 paginate = 6
@@ -45,14 +45,14 @@ disqusShortname = ""
   
   # main menu
   [[menu.main]]
-  name = "About"
-  URL = "about"
-  weight = 1
+  name = "Profile"
+  URL = "https://odaryo.com"
+  weight = 2
   
   [[menu.main]]
   name = "Post"
   URL = "blog"
-  weight = 2
+  weight = 1
   
   [[menu.main]]
   name = "Contact"
@@ -61,14 +61,14 @@ disqusShortname = ""
 
   # footer menu
   [[menu.footer]]
-  name = "About"
-  URL = "about"
-  weight = 1
+  name = "Profile"
+  URL = "https://odaryo.com"
+  weight = 2
   
   [[menu.footer]]
   name = "Post"
   URL = "blog"
-  weight = 2
+  weight = 1
   
   [[menu.footer]]
   name = "Contact"
@@ -82,13 +82,14 @@ logo = "images/logo.png"
 home = "Home"
 # Meta data
 description = "This is meta description"
-author = "Themefisher"
+author = "odaryo"
+
 # Google Analitycs
-googleAnalitycsID = "Your ID"
+googleAnalitycsID = "UA-162930580-1"
+
 # Contact Information
-mobile = "0124857985320"
-email = "demo@email.com"
-location = "Dhaka, Bangladedsh"
+email = "odaryo@gmail.com"
+location = ""
 # copyright
 copyright = "| copyright &copy; 2020 [Themefisher](https://themefisher.com) All Rights Reserved |"
 
@@ -103,32 +104,18 @@ copyright = "| copyright &copy; 2020 [Themefisher](https://themefisher.com) All 
 
 ############################ news letter ########################
 [params.newsletter]
-enable = true
+enable = false
 title = "Join Our Newsletter"
 content = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero"
 
 ############################# social site ########################
-[[params.social]]
-title = "facebook"
-icon = "ti-facebook" # themify icon : https://themify.me/themify-icons
-link = "#"
 
 [[params.social]]
 title = "twitter"
 icon = "ti-twitter-alt" # themify icon : https://themify.me/themify-icons
-link = "#"
-
-[[params.social]]
-title = "instagram"
-icon = "ti-instagram" # themify icon : https://themify.me/themify-icons
-link = "#"
+link = "https://twitter.com/odaryo"
 
 [[params.social]]
 title = "github"
 icon = "ti-github" # themify icon : https://themify.me/themify-icons
-link = "#"
-
-[[params.social]]
-title = "linkedin"
-icon = "ti-linkedin" # themify icon : https://themify.me/themify-icons
-link = "#"
+link = "https://github.com/odaryo"
