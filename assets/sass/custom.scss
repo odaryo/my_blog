@@ -1,14 +1,20 @@
 
 img {
   max-width: 100%;
+
+  &.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
 }
 
-.navbar-brand{
-  img{
+.navbar-brand {
+  img {
     max-width: 220px;
   }
 }
 
-.section{
+.section {
   padding-top: 50px;
 }
+
