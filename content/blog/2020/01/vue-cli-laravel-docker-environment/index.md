@@ -4,7 +4,7 @@
 title: "Vue.js + Laravelの環境をDockerを使って作ってみる"
 date: 2020-01-30T12:04:37+09:00
 featured: false
-draft: false
+draft: true
 
 # post thumb
 image: "images/post/post_laravelvue.svg"

@@ -87,26 +87,26 @@ latestで指定するとビルド時点の最新版が入るため、チーム�
 
 プロジェクトディレクトリと、appディレクトリを作成します。
 
-```
+```bash
 $ mkdir <project_dir>
 $ cd <project_dir>
 ```
 
 ここで、appディレクトリを作成しておきます。
 
-```
+```bash
 $ mkdir app
 ```
 
 ### ② laradockをダウンロード
 
-```
+```bash
 $ git clone  https://github.com/Laradock/laradock.git
 ```
 
 ### ③ 設定ファイルのコピー
 
-```
+```bash
 $ cd laradock
 $ cp env-example .env
 ```
@@ -116,47 +116,47 @@ $ cp env-example .env
 .envにはディレクトリの場所や、インストールされるミドルウェア（nginxやmysqlなど）のバージョンなど、いろいろな設定を記載することができます。  
 この.envファイルの編集だけで、様々な環境に対応できるのがLaradockの強みだと思っております。
 
-```
+```bash
 $ vi .env
 ```
 
-<b>１．laravelディレクトリを設定</b>
+#### １．laravelディレクトリを設定
 
 好みの問題ですが、今回の構成に合わせて修正します。
 
-```
+```bash
 - APP_CODE_PATH_HOST=../
 + APP_CODE_PATH_HOST=../app/
 ```
 
-<b>２．データの保存ディレクトリを変更</b>
+#### ２．データの保存ディレクトリを変更
 
 デフォルトでは、ホームディレクトリに保存されてしまいます。  
 このままでは、ほかのプロジェクトデータで上書きされるかもしれませんので、プロジェクト内に作成するよう変更します。
 
-```
+```bash
 - DATA_PATH_HOST=~/.laradock/data
 + DATA_PATH_HOST=.laradock/data
 ```
 
-<b>３．プロジェクト名の設定</b>
+#### ３．プロジェクト名の設定
 
 laradockを使ったプロジェクトを複数作る場合、プロジェクト名が同じ場合、過去に作った同じ名前のコンテナイメージが上書きされてしまいます。  
 後々面倒なことになるため、必ず被らない名前を設定してください。
 
-```
+```bash
 - COMPOSE_PROJECT_NAME=laradock
 + COMPOSE_PROJECT_NAME=<project_name>
 ```
 
-<b>４．ユーザID、グループIDを設定</b>
+#### ４．ユーザID、グループIDを設定
 
 WSL側とDocker側でユーザIDが異なると、Linuxではファイルの編集ができなくなります。
 
 そのため、ユーザIDをWSL側と合わせてやります。  
 Ubuntuの場合はデフォルトでよいと思います。
 
-```
+```bash
 WORKSPACE_PUID=1000
 WORKSPACE_PGID=1000
 PHP_WORKER_PUID=1000
@@ -165,19 +165,19 @@ PHP_WORKER_PGID=1000
 
 なお、PUIDとPGIDは```id```コマンドで確認できます。
 
-```
+```bash
 $ id 
 uid=1000(***) gid=1000(***) ....
 ```
 
-<b>５．ポート設定</b>
+#### ５．ポート設定
 
 複数プロジェクトのDockerを起動する場合、ポートが被ることがあります。  
 環境に合わせて変更してください。
 
 複数プロジェクトを同時に立ち上げなければ基本デフォルトで問題ありません。
 
-```
+```bash
 NGINX_HOST_HTTP_PORT=80
 NGINX_HOST_HTTPS_PORT=443
 MARIADB_PORT=3306
@@ -192,12 +192,11 @@ MySQLは8系になってパスワードの生成方法が変わりそのまま�
 
 ```<project_dir>/lardock/mysqmy.cnf```に下記を追加します。
 
-```
+```bash
 // [mysqld]のエリアに追記する（デフォルトの場合一番下）
 default_authentication_plugin=mysql_native_password
 ```
 
-<div id="setting2" />
 ## ２．laradockの起動
 
 下記コマンドでlaradockを起動します。
@@ -205,13 +204,13 @@ default_authentication_plugin=mysql_native_password
 
 なお、```<project_dir>/app```ディレクトリが存在しない場合はroot権限で作成されてしまうため、必ず作成した状態で起動してください。
 
-```
+```bash
 $ docker-compose up -d nginx mysql workspace phpmyadmin
 ```
 
 起動確認
 
-```
+```bash
 $ docker-compose ps
               Name                            Command               State                    Ports
 --------------------------------------------------------------------------------------------------------------------        laradock_test_docker-in-docker_1   dockerd-entrypoint.sh            Up      2375/tcp, 2376/tcp
@@ -221,7 +220,6 @@ laradock_test_phpmyadmin_1         /docker-entrypoint.sh apac ...   Up      0.0.
 laradock_test_workspace_1          /sbin/my_init                    Up      0.0.0.0:2222->22/tcp
 ```
 
-<div id="setting3" />
 ## ３．Laravelのインストールと初期設定
 
 ここでは、dockerコンテナ内からlaravelをインストールする方法と、  
@@ -232,14 +230,14 @@ laradock_test_workspace_1          /sbin/my_init                    Up      0.0.
 下記コマンドでWorkspaceコンテナに入ります。  
 この時、```user```オプションでユーザを指定してください。
 
-```
+```bash
 $ docker-compose exec --user=laradock workspace /bin/bash
 ```
 
 コンテナ内で下記を実行します。  
 （/var/www$ といった記述がある行はコンテナ内で実行していると思ってください）
 
-```
+```bash
 /var/www$ composer create-project --prefer-dist laravel/laravel .
 ```
 
@@ -253,14 +251,14 @@ Windows側のブラウザで、```http://localhost```にアクセスします。
 
 ### ② 設定ファイルの編集
 
-<b>１．.envの設定</b>
+#### １．.envの設定
 
 laravelの.envファイルの設定を変更します。
 
 DBの設定を、laradockに合わせて変更する。  
 ※DB_HOSTはdocker-compose.ymlに書かれているコンテナ内名を指定します。
 
-```
+```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -277,13 +275,13 @@ DB_PASSWORD=secret
 
 ![phpMyAdmin](img-02.png)
 
-<b>２．マイグレーションの確認</b>
+#### ２．マイグレーションの確認
 
 MySQLの設定が完了したか、マイグレーションで確認してみましょう。
 
 下記のようになり、DBにテーブルが作成されればOKです。
 
-```
+```bash
 /var/www$ php artisan migrate
 Migration table created successfully.
 Migrating: 2014_10_12_000000_create_users_table
@@ -294,7 +292,7 @@ Migrating: 2019_08_19_000000_create_failed_jobs_table
 Migrated:  2019_08_19_000000_create_failed_jobs_table (0.1 seconds)
 ```
 
-<b>その他</b>
+#### その他
 
 他にも言語やタイムゾーンの設定、ディレクトリ構成を変えるなどいろいろなカスタマイズがあるかと思いますが、ここでは割愛します。
 
@@ -302,18 +300,18 @@ Migrated:  2019_08_19_000000_create_failed_jobs_table (0.1 seconds)
 
 Vue.jsの設定とビルド、ホットリロードの確認を行います。
 
-<b>Vue.jsを利用する設定</b>
+#### Vue.jsを利用する設定
 
 Laravel 6.0からデフォルトではインストールされないため、laravel/uiからインストールします。
 
-```
+```bash
 /var/www$ composer require laravel/ui --dev
 /var/www$ php artisan ui vue
 ```
 
-<b>node_modulesのインストール</b>
+#### node_modulesのインストール
 
-```
+```bash
 /var/www$ yarn
 ```
 

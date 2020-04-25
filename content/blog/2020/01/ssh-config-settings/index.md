@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "~/.ssh/configでSSHコマンドを快適化"
+title: "~/.ssh/configでSSHコマンドを快適化 & PhpStormへの設定"
 date: 2020-01-23T01:12:53+09:00
 featured: false
 draft: false

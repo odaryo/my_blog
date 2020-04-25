@@ -7,7 +7,7 @@ featured: false
 draft: false
 
 # post thumb
-image: "images/post/post_laravelvue.svg"
+image: "images/post/post_win.svg"
 
 # archives
 archives:

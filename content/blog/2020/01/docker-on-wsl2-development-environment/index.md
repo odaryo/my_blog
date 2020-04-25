@@ -108,8 +108,6 @@ WSLにUbuntuをインストールして、WSL2を有効化します。
 ### 余談
 端末は[Windows Terminal](https://www.microsoft.com/ja-jp/p/windows-terminal-preview/9n0dx20hk701)を使っています。
 
-<div id="setting2"></div>
-
 ## ２．X-Serverの設定
 
 下記ページを参考にX-Serverを設定しました。
@@ -125,7 +123,7 @@ WSLにUbuntuをインストールして、WSL2を有効化します。
 
 参考ページ通りにデスクトップ環境としてMateをインストールします。
 
-```
+```bash
 $ sudo apt update && sudo apt upgrade -y
 $ sudo service dbus start
 $ sudo apt install ubuntu-mate-desktop mate-desktop-environment mate-common mate-core
@@ -393,7 +391,7 @@ IDEからLinterツールなどを実行するにはローカルにNode.jsをイ�
 
 nvmからインストールしました。
 
-```
+```bash
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 $ source $HOME/.bashrc
 ```
@@ -475,7 +473,7 @@ pecoは入力された一覧から絞り込み検索と、選択ができるよ�
 
 いろいろな用途があるようですが、今回はhistoryの検索を設定しています。
 
-```
+```bash
 > sudo apt install peco
 > fisher add oh-my-fish/plugin-peco
 ```
