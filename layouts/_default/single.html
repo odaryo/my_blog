@@ -25,13 +25,13 @@
 
         <!-- comments -->
         {{ template "_internal/disqus.html" . }}
+        {{ partial "prev-next-siblings" . }}
       </div>
       <!-- sidebar -->
       {{ partial "sidebar.html" . }}
       <!-- /sidebar -->
 
     </div>
-      {{ partial "prev-next-siblings" . }}
   </div>
 </section>
 
