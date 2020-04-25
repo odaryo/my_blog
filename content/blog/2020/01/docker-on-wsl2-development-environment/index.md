@@ -68,11 +68,11 @@ VSCodeを使用する場合はX環境を設定しなくても、Remote Develop�
 
 # 設定手順
 
-1. [WSL2の有効化](#setting1)
-1. [X-Serverの設定](#setting2)
-1. [Dockerのインストール](#setting3)
-1. [PhpStorm設定](#setting4)
-1. [その他ツール（Node.js、Fish）](#setting5)
+1. [WSL2の有効化](#１wsl2の有効化)
+1. [X-Serverの設定](#２x-serverの設定)
+1. [Dockerのインストール](#３dockerのインストール)
+1. [PhpStorm設定](#４phpstormの設定)
+1. [その他ツール（Node.js、Fish）](#５その他ツールのインストール)
 
 <div id="setting1"></div>
 
@@ -87,19 +87,19 @@ WSLにUbuntuをインストールして、WSL2を有効化します。
 ### ② 仮想マシンを有効化
 
 
-```
+```bash
 > Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 ```
 
 ### ③ WSLのバージョンを2に変更
 
-```
+```bash
 > wsl --set-version Ubuntu-18.04 2
 ```
 
 ### ④ バージョン2になったことを確認
 
-```
+```bash
 > wsl -l -v
   NAME            STATE           VERSION
 * Ubuntu-18.04    Running         2
@@ -154,19 +154,19 @@ XLaunch（VcXsrvのアプリ名）を起動します。
 
 WSL2側で".bashrc"に下記を追記します。
 
-```
+```bash
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 ```
 
 設定をリロード
 
-```
+```bash
 $ source $HOME/.bashrc
 ```
 
 試しにxeyesを表示させてみます。
 
-```
+```bash
 $ xeyes
 ```
 
@@ -189,7 +189,7 @@ $ xeyes
 
 １．Japanese Teamの追加パッケージを設定
 
-```
+```bash
 $ wget -q https://www.ubuntulinux.jp/ubuntu-ja-archive-keyring.gpg -O- | sudo apt-key add -
 $ wget -q https://www.ubuntulinux.jp/ubuntu-jp-ppa-keyring.gpg -O- | sudo apt-key add -
 $ sudo wget https://www.ubuntulinux.jp/sources.list.d/bionic.list -O /etc/apt/sources.list.d/ubuntu-ja.list
@@ -200,13 +200,13 @@ $ sudo apt install ubuntu-defaults-ja
 
 ２．fcitx-mozcのインストール
 
-```
+```bash
 $ sudo apt install fcitx fcitx-mozc
 ```
 
 環境変数が必要なため、以下を```.bashrc```に追記します。
 
-```
+```bash
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
@@ -215,26 +215,26 @@ export DefaultIMModule=fcitx
 
 設定をリロード
 
-```
+```bash
 $ source $HOME/.bashrc
 ```
 
 ３．日本語フォントをインストール
 
-```
+```bash
 $ sudo apt install fonts-noto-cjk fonts-noto-color-emoji
 ```
 
 ４．日本語ロケールに設定
 
-```
+```bash
 $ sudo update-locale LANG=ja_JP.UTF8
 ```
 
 ５．日本語変換を利用する設定
 fcitxを起動する
 
-```
+```bash
 $ fcitx-autostart
 ```
 
@@ -245,7 +245,7 @@ $ fcitx-autostart
 
 下記コマンドを実行して、入力メソッドの設定を開きます。
 
-```
+```bash
 $ fcitx-config-gtk3
 ```
 
@@ -271,7 +271,7 @@ $ fcitx-config-gtk3
 ### ① Dockerのインストール
 公式サイトを参考にインストールします。
 
-```
+```bash
 $ sudo apt install \
     apt-transport-https \
     ca-certificates \
@@ -290,7 +290,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io
 
 インストールの確認
 
-```
+```bash
 $ docker -v
 Docker version 19.03.5, build 633a0ea838
 ```
@@ -298,7 +298,7 @@ Docker version 19.03.5, build 633a0ea838
 このままではroot権限が無いと実行できないため、一般ユーザでも実行できるよう設定します。
 (groupはすでに作られていると思いますが、一応実行)
 
-```
+```bash
 $ sudo groupadd docker
 $ sudo usermod -a -G docker <user_id>
 ```
@@ -306,7 +306,7 @@ $ sudo usermod -a -G docker <user_id>
 WSL2を再起動することで反映されます。  
 PowerShellで下記コマンドを実行します。
 
-```
+```bash
 wslconfig /t Ubuntu-18.04
 ```
 
@@ -315,7 +315,7 @@ wslconfig /t Ubuntu-18.04
 ### ② Docker Composeのインストール
 同様にDocker Composeもインストールします。
 
-```
+```bash
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 $ 
@@ -323,7 +323,7 @@ $
 
 インストールの確認
 
-```
+```bash
 $ docker-compose -v
 docker-compose version 1.25.0, build 0a186604
 ```
@@ -339,7 +339,7 @@ WSL2を再起動するたびにdockerデーモンを起動する必要があり�
 
 起動コマンドは下記です。
 
-```
+```bash
 $ sudo service docker start
 ```
 
@@ -359,13 +359,13 @@ https://www.jetbrains.com/ja-jp/toolbox-app/
 
 ２．下記コマンドを実行してインストール
 
-```
+```bash
 $ sudo tar -xzf jetbrains-toolbox-*.tar.gz -C /usr/local/bin --strip-components 1
 ```
 
 ３．Toolbox起動
 
-```
+```bash
 $ jetbrains-toolbox
 ```
 
@@ -379,7 +379,7 @@ Git、Docker、Node.jsなどはインストール後に設定を開くと自動�
 
 また、フォントとして「Ricty Diminished」もインストールしました。
 
-```
+```bash
 $ sudo apt install fonts-ricty-diminished
 ```
 
@@ -400,17 +400,17 @@ $ source $HOME/.bashrc
 
 Node.js（LTS）のインストール
 
-```
+```bash
 $ nvm install --lts
 ```
 
 ついでにyarnもインストール
 
-```
+```bash
 $ npm install -g yarn
 ```
 
-```
+```bash
 $ node -v
 v12.14.1
 $ npm -v
@@ -431,7 +431,7 @@ $ yarn -v
 
 インストールは公式の情報を[参考](https://github.com/fish-shell/fish-shell)にしました。
 
-```
+```bash
 $ sudo apt-add-repository ppa:fish-shell/release-3
 $ sudo apt-get update
 $ sudo apt-get install fish
@@ -442,13 +442,13 @@ $ sudo apt-get install fish
 テーマやプラグイン管理のツール「fisherman」をインストールします。（[参考](https://github.com/jorgebucaran/fisher)）  
 テーマはシンプルな「clearance」を選択しました。
 
-```
+```bash
 $ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
 
 以下はfish内で実行。
 
-```
+```bash
 $ fish
 > fisher add oh-my-fish/theme-clearance
 ```
@@ -458,13 +458,13 @@ $ fish
 - bassのインストール  
 fishでbashコマンドを使えるようにするためのプラグインです。
 
-```
+```bash
 > fisher add edc/bass
 ```
 
 bashのスクリプトも下記のように動かすことができます。
 
-```
+```bash
 > bass test.sh
 > bass source config.sh
 ```
@@ -482,7 +482,7 @@ pecoは入力された一覧から絞り込み検索と、選択ができるよ�
 
 config.fishに設定を追記する
 
-```
+```bash
 > cat ~/.config/fish/config.fish
 function fish_user_key_bindings
   bind \cr 'peco_select_history (commandline -b)'
@@ -491,7 +491,7 @@ end
 
 設定の反映
 
-```
+```bash
 > source ~/.config/fish/config.fish
 ```
 
@@ -504,7 +504,7 @@ end
 
 また、次の２つのコマンドをWSL2起動のたびに実行する必要があるのが難点です。
 
-```
+```bash
 $ sudo service docker start
 $ fcitx-autostart
 ```

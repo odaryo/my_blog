@@ -48,7 +48,7 @@ Docker Composeを使ってNuxt.jsの開発環境を構築したときの手順�
 
 ### docker-compose.yml
 
-```
+```yml
 version: '3'
 
 services:
@@ -76,7 +76,7 @@ services:
 
 Dockerfileにuser_id/group_idの変更を記載します。
 
-```
+```bash
 ARG NODE_VERSION
 
 FROM node:${NODE_VERSION}-alpine
@@ -103,7 +103,7 @@ WORKDIR /app
 
 .envにdocker-compose.yml, Dockerfileで使用する各パラメータを記載します
 
-```:.env
+```bash
 # Dockerプロジェクト名
 COMPOSE_PROJECT_NAME=nuxt_sanple
 
@@ -117,7 +117,7 @@ NODE_VERSION=12
 
 ## 起動方法
 
-```
+```bash
 $ docker-compose build (初回のみ)
 $ docker-compose up -d
 ```
@@ -126,6 +126,6 @@ $ docker-compose up -d
 
 nuxt.config.jsを編集した場合は自動読み込みされないため、下記コマンドでリスタートします。
 
-```
+```bash
 $ docker-compose restart
 ```

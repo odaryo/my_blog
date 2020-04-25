@@ -34,7 +34,7 @@ type: "post"
 HugoはGO言語で作られた静的サイトジェネレーターです。  
 この度ブログを作成しようとHugoをインストールしたところ、プロジェクト作成時に下記エラーに見舞われました。
 
-```
+```bash
 $ hugo new site myblog
 Error: Failed to create dir: mkdir /var/lib/snapd/void/myblog: permission denied
 ```

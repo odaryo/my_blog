@@ -7,7 +7,7 @@ featured: false
 draft: false
 
 # post thumb
-image: "images/post/post_laravel.svg"
+image: "blog/2020/01/new-info-thinkpad-wireless-keyboard/keyboard.jpeg"
 
 # archives
 archives:
@@ -33,8 +33,6 @@ type: "post"
 5年ほど前から使っていて、同じ型を買い変えながら現在3代目。
 
 愛用しているキーボードのNewモデルが発表されました。
-
-[![keyboard](https://o.aolcdn.com/images/dar/5845cadfecd996e0372f/b3db33a566e9f7b5101654a358ab35e668ca1604/aHR0cHM6Ly9tZWRpYS1tYnN0LXB1Yi11ZTEuczMuYW1hem9uYXdzLmNvbS9jcmVhdHItdXBsb2FkZWQtaW1hZ2VzLzIwMjAtMDEvOTJhOGEzMDAtMzAwMC0xMWVhLWFiZDYtYjQ2Yjc5YWNjZWE2)](https://japanese.engadget.com/jp-2020-01-05-thinkpad-7-bt-2-usb-c.html)
 
 [ThinkPad仕様単体キーボード、7年ぶり世代交代。BT+独自無線の2台接続、USB-C充電など大進化](https://japanese.engadget.com/jp-2020-01-05-thinkpad-7-bt-2-usb-c.html)
 

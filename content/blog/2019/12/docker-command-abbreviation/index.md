@@ -59,7 +59,7 @@ Linux（Bash）とWindows（PowerShell）の両方に対応できるよう作成
 
 - bin/doc.sh
 
-```
+```bash
 #!/bin/bash
 
 cmd="docker-compose $@"
@@ -71,7 +71,7 @@ $cmd
 - bin/artisan.sh  
 コンテナ起動時はexec、停止時はrunコマンドで実行するように設定
 
-```
+```bash
 #!/bin/bash
 
 set -eu
@@ -88,7 +88,7 @@ $cmd
 
 - bin/composer.sh  
 
-```
+```bash
 #!/bin/bash
 
 set -eu
@@ -107,7 +107,7 @@ $cmd
 
 - bin/doc.ps1
 
-```
+```bash
 $cmd = "docker-compose $Args"
 
 echo $cmd
@@ -116,7 +116,7 @@ invoke-expression $cmd
 
 - bin/artisan.ps1
 
-```
+```bash
 $run = docker-compose.exe ps app | Out-String -Stream | Select-String "Up"
 
 if($run) {
@@ -136,7 +136,7 @@ invoke-expression $cmd
 
 プロジェクトルートに移動して下記コマンドを実行
 
-```
+```bash
 # コンテナ起動
 ./bin/doc.ps1 up -d
 

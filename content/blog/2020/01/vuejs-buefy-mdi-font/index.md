@@ -32,7 +32,7 @@ Vue.js + Buefyでプロジェクトを作った際、Material Design Iconsがう
 
 mdiフォントのインストール
 
-```
+```bash
 $ npm i @mdi/font
 or
 $ yarn add @mdi/font
@@ -40,7 +40,7 @@ $ yarn add @mdi/font
 
 main.jsに下記を追加
 
-```
+```bash
 import "@mdi/font/css/materialdesignicons.css";
 
 Vue.use(Buefy);

@@ -30,7 +30,7 @@ type: "post"
 
 Windows10のdocker desktop for window環境で、docker-composeで起動中のコンテナを操作しようとしたところ、下記エラーが出るようになりました。
 
-```
+```bash
 > docker-compose exec web /bin/bash
 Traceback (most recent call last):
   File "docker-compose", line 6, in <module>
@@ -92,14 +92,14 @@ https://github.com/docker/compose/releases/tag/1.25.3
 
 バージョンが上がっていることを確認します。
 
-```
+```bash
 > docker-compose -v
 docker-compose version 1.25.3, build d4d1b42b
 ```
 
 無事実行できました。
 
-```
+```bash
 > docker-compose exec web /bin/bash
 root@7bf1597be011:/var/www/html# 
 ```

@@ -4,7 +4,7 @@
 title: "Nuxt.js+Typescriptの設定"
 date: 2020-03-05T23:31:54+09:00
 featured: false
-draft: false
+draft: true
 
 # post thumb
 image: "images/post/post_nuxt.svg"

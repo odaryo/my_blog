@@ -46,7 +46,7 @@ sshでリモートサーバーに接続するときに使用する設定ファ�
 
 configファイルを使わない場合は下記のように接続するか、
 
-```
+```bash
 # IPアドレスで接続
 $ ssh xxx.xxx.xxx.xxx
 # ユーザ名やドメイン名で接続
@@ -55,7 +55,7 @@ $ ssh user@serverxxxx.com
 
 パラメータを設定して接続します。
 
-```
+```bash
 # 鍵やポートの指定
 $ ssh xxx.xxx.xxx.xxx -i ~/.ssh/鍵の名前 -p ポート番号
 ```
@@ -68,19 +68,19 @@ $ ssh xxx.xxx.xxx.xxx -i ~/.ssh/鍵の名前 -p ポート番号
 
 ファイルが無い場合は作成します。
 
-```
+```bash
 $ touch ~/.ssh/config
 ```
 
 ちなみに、Linuxの場合はパーミッションを変更しておきましょう
 
-```
+```bash
 $ chmod 700 ~/.ssh/config
 ```
 
 ~/.ssh/configの中身はこんな感じです。
 
-```
+```bash
 Host 任意の名称（こちらの名称が接続時に使用できます）
     Hostname 接続先のIPアドレス/ドメイン名
     User ユーザ名
@@ -91,7 +91,7 @@ Host 任意の名称（こちらの名称が接続時に使用できます）
 
 例えば下記のように設定すると、
 
-```
+```bash
 Host sv1
     Hostname server.xxx.com
     User user1
@@ -102,7 +102,7 @@ Host sv1
 
 このような記述で接続できます。
 
-```
+```bash
 $ ssh sv1
 ```
 
@@ -113,7 +113,7 @@ $ ssh sv1
 
 また、scpコマンドなどもconfig設定で動作できます。
 
-```
+```bash
 $ scp file_name sv1:~/
 ```
 
@@ -121,7 +121,7 @@ $ scp file_name sv1:~/
 
 踏み台経由でSSH接続する場合もconfigを利用できます。
 
-```
+```bash
 # 踏み台サーバ
 Host sv1
     Hostname server.xxx.com
@@ -145,7 +145,7 @@ Host sv2
 
 接続方法はこちら
 
-```
+```bash
 $ ssh sv2
 ```
 

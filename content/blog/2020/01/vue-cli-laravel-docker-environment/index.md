@@ -55,7 +55,7 @@ Vue.jsはVue CLIでプロジェクトを作成し、TypescriptとBuefyを適用�
 
 ## ディレクトリ構造
 
-```
+```bash
 + api/ # Laravel directory
 + docker/ # dockerfiles directory
     + api/
@@ -73,7 +73,7 @@ Vue.jsはVue CLIでプロジェクトを作成し、TypescriptとBuefyを適用�
 
 ### 起動コマンド
 
-```
+```bash
 $ docker-compose build
 $ docker-compose up -d
 ```
@@ -94,7 +94,7 @@ $ docker-compose up -d
 Vue.jsはVue-CLIでインストールします。
 <project_dir>/frontの中身が空の場合はfrontコンテナが立ち上がらないため、runで起動します。
 
-```
+```bash
 $ cd <project_dir>
 
 $ doc run --rm front vue create .
@@ -125,7 +125,7 @@ Vue CLI v4.1.2
 Vue.js単体での動作確認をします。
 （実際の開発時はdocker-compose upで```yarn serve```が実行されるようになっています）
 
-```
+```bash
 $ cd front
 $ yarn serve
 ```
@@ -137,7 +137,7 @@ localhost:8080にアクセスして表示されればOK
 
 AxiosとBuefyをインストールします。
 
-```
+```bash
 $ pwd
 <project_dir>/front
 $ yarn add axios buefy
@@ -145,7 +145,7 @@ $ yarn add axios buefy
 
 #### 2. Laravel 6.0
 
-```
+```bash
 $ pwd
 <projct_dir>
 
@@ -161,7 +161,7 @@ $ docker-compose exec php-fpm composer require predis/predis
 
 #### 3.docker再起動
 
-```
+```bash
 $ docker-compose down
 $ docker-compose up -d
 ```
@@ -174,13 +174,13 @@ https-proxyコンテナでSSL化とプロキシ設定を行うため、共通ネ
 
 [https-proxyのサンプル](https://github.com/odaryo/docker_ssl_proxy)
 
-```
+```bash
 $ docker network create --driver bridge proxy_network
 ```
 
 ### 起動コマンド
 
-```
+```bash
 $ docker-compose -f prod.docker-compose.yml build
 $ docker-compose -f prod.docker-compose.yml up -d
 ```

@@ -30,7 +30,7 @@ type: "post"
 
 WSl2にUbuntu 18.04を入れたところ、```apt update```コマンドで下記のようなエラーが出るようになりました。
 
-```
+```bash
 $ sudo apt update
 Hit:1 https://download.docker.com/linux/ubuntu bionic InRelease
 Hit:2 http://ppa.launchpad.net/fish-shell/release-3/ubuntu bionic InRelease
@@ -68,14 +68,14 @@ dateコマンドで確認したところ、1日と5時間ほど遅れている�
 
 コマンドプロンプトを管理者権限で開いて下記コマンドを実行するか、
 
-```
+```bash
 net stop LxssManager
 net start LxssManager
 ```
 
 PowerShellで下記コマンドを実行する。
 
-```
+```bash
 wslconfig /t Ubuntu-18.04
 ```
 

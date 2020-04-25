@@ -7,7 +7,7 @@ featured: false
 draft: false
 
 # post thumb
-image: "images/post/post_linux.svg"
+image: "blog/2020/01/new-info-thinkpad-wireless-keyboard/keyboard.jpeg"
 
 # archives
 archives:

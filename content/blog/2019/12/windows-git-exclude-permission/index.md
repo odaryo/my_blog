@@ -40,7 +40,7 @@ Windowsでも、ホストとWSL2で扱いが変わったりします。
 
 WindowsでGit bashなどで実行
 
-```
+```bash
 git config -g core.filemode false
 ```
 

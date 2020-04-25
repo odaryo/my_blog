@@ -37,7 +37,7 @@ Windowsで開発するときに気をつけないといけないものはいく�
 
 それを防ぐために下記を設定します。
 
-```
+```bash
 git config -g core.autocrlf input
 ```
 

@@ -7,7 +7,7 @@ featured: false
 draft: false
 
 # post thumb
-image: "images/post/post_windows.svg"
+image: "images/post/post_win.svg"
 
 # archives
 archives:
@@ -52,7 +52,7 @@ WSL2のX環境をセットアップして、いざGUI表示しよう！と思っ
 
 下記エラーが表示されていました。
 
-```
+```bash
 Error: Can't open display: :0.0
 ```
 
@@ -72,7 +72,7 @@ https://github.com/microsoft/WSL/issues/4106
 
 下記コードを.bashrcに設定しておけばよいらしい。
 
-```
+```bash
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 ```
 

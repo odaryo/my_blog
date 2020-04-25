@@ -34,7 +34,7 @@ Nuxt.jsにTypescriptを適用して、Classを書こうとしたときに、下�
 
 ![warning](img-01.png)
 
-```
+```bash
 TS1219: Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option in your 'tsconfig' or 'jsconfig' to remove this warning.
 ```
 
@@ -45,7 +45,7 @@ TS1219: Experimental support for decorators is a feature that is subject to chan
 ということで、tsconfig.jsonの```compilerOptions```以下に下記記述を追加するとWarningが消えます。
 
 
-```
+```bash
 {
   "compilerOptions": {
     ...

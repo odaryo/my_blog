@@ -32,7 +32,7 @@ type: "post"
 
 DockerfileからNodeコンテナをビルドする際に下記エラーが起きました。
 
-```
+```bash
 npm ERR! code EEXIST
 npm ERR! syscall symlink
 npm ERR! path ../lib/node_modules/yarn/bin/yarn.js
@@ -46,7 +46,7 @@ npm ERR! with --force to overwrite files recklessly.
 
 Dockerfileの内容
 
-```
+```bash
 FROM node:12-alpine
 
 RUN npm install -g yarn

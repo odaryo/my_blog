@@ -35,7 +35,7 @@ Module not found: Error: Can't resolve 'core-js/modules/...' in '/app/...'
 ```
 buildログを一部抜粋
 
-```
+```bash
 $ yarn build
 
 ...
@@ -106,11 +106,11 @@ core-jsが3.xになるとエラーが起きるらしい。
 
 2系の最新版(2019/12/10時点)をインストールするように明記
 
-```
+```bash
 $ yarn add core-js@2.6.11
 ```
 
-```
+```bash
 $ yarn build
 ```
 
