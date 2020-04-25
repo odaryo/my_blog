@@ -1,15 +1,29 @@
 <div class="col-lg-4">
-  <!-- about -->
+  <!-- profile -->
   <div class="widget">
-    {{ with .Site.GetPage "/about" }}
-    <h4 class="widget-title">{{ .Title | markdownify }}</h4>
-    {{ if .Params.Image }}
-    <img src="{{ .Params.Image | absURL }}" alt=""
-      class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-    {{ end }}
-    <p>{{ .Summary }}</p>
-    <a href="{{ .Permalink }}" class="btn btn-outline-primary">Know More</a>
-    {{ end }}
+    <h4 class="widget-title">Profile</h4>
+    <img src="/images/author.jpg" alt=""
+         class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
+      <div>
+          <p><a href="{{ .Site.Params.profileUrl | absURL }}">Odaryo<span class="outer-link"><i class="ti-new-window"></i></span></a></p>
+          <p>Webエンジニアです。<br>フロントエンド/バックエンド/インフラ問わず開発しています。<br>現在フリーランスとして活動中</p>
+        <p class=""><a href="{{ .Site.Params.profileUrl | absURL }}">プロフィール詳細はこちら<span class="outer-link"><i class="ti-new-window"></i></span></a></p>
+      </div>
+  </div>
+
+  <!-- Tags -->
+  <div class="widget">
+    <h4 class="widget-title">Tag</h4>
+    {{- if isset .Site.Taxonomies "tags" }}
+    {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
+    <ul class="list-inline">
+      {{- range $name, $items := .Site.Taxonomies.tags }}
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+                                      href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- end }}
   </div>
   <!-- category -->
   <div class="widget">
@@ -21,20 +35,6 @@
       <li><a
           href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | title | humanize }}</a>
       </li>
-      {{- end }}
-    </ul>
-    {{- end }}
-    {{- end }}
-  </div>
-  <!-- Tags -->
-  <div class="widget">
-    <h4 class="widget-title">Tag</h4>
-    {{- if isset .Site.Taxonomies "tags" }}
-    {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
-    <ul class="list-inline">
-      {{- range $name, $items := .Site.Taxonomies.tags }}
-      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-          href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
       {{- end }}
     </ul>
     {{- end }}

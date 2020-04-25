@@ -83,6 +83,7 @@ home = "Home"
 # Meta data
 description = "This is meta description"
 author = "odaryo"
+profileUrl = "https://odaryo.com"
 
 # Google Analitycs
 googleAnalitycsID = "UA-162930580-1"

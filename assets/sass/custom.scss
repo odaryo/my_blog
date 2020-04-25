@@ -18,6 +18,15 @@ img {
   padding-top: 50px;
 }
 
+.outer-link {
+  position: relative;
+  margin-left: 3px;
+  font-size: 0.6rem;
+  & i {
+    position: absolute;
+    top: -0.3rem;
+  }
+}
 
 // コードエリア
 .content code {
