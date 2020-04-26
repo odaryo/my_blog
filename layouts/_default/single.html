@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2>{{ .Title | markdownify }}</h2>
+        <h1>{{ .Title | markdownify }}</h1>
         <div class="mb-3 post-meta">
           {{ if not .Params.HideDate }}
           <i class="ti-calendar"></i><span> {{ .PublishDate.Format "2006-01-02" }}</span>
@@ -20,7 +20,7 @@
         tags:
         {{ range .Params.Tags }}
         <a href="{{ "tags/" | relLangURL }}{{ . | urlize | lower }}"
-        class="blog-tag p-2 bg-primary text-white">{{ . | title | humanize }}</a>
+        class="blog-tag bg-primary text-white">{{ . | title | humanize }}</a>
         {{ end }}
         {{ if .Params.image }}
         <img src="{{ .Params.Image | absURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">

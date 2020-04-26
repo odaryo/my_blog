@@ -9,9 +9,34 @@ img {
   }
 }
 
+h1, .h1 {
+  font-size: 2rem;
+}
+
+h2, .h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+h3, .h3 {
+  font-size: 1.4rem;
+}
+
+h4, .h4 {
+  font-size: 1.3rem;
+}
+
+h5, .h5 {
+  font-size: 1.2rem;
+}
+
+h6, .h6 {
+  font-size: 1.1rem;
+}
+
 .navbar-brand {
   img {
-    max-width: 220px;
+    max-width: 160px;
   }
 }
 
@@ -31,15 +56,51 @@ img {
   }
 }
 
+.sidebar {
+  padding: 0 2rem;
+}
+
 // タグアイコン
 .blog-tag {
   display: inline-block !important;
+  padding: .3rem .5rem !important;
+  margin: 0 2px 5px;
+  border-radius: 1rem;
 }
 
-// コードエリア
-.content code {
-  color: inherit !important;
+.side-tag {
+  & > li {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  &__item {
+    display: block !important;
+    padding: .3rem .8rem !important;
+    margin: 0 2px 5px;
+    border-radius: 1rem;
+  }
 }
+
+.widget-title {
+  min-width: 100px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// 記事内の設定
+.content {
+  // 見出し
+  & h1 {
+
+  }
+
+  // コードエリア
+  & code {
+    color: inherit !important;
+  }
+}
+
 
 // 記事ページのprev, nextリンク
 .prev-next {

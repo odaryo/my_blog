@@ -48,7 +48,7 @@ TypeError: environment can only contain strings
 エラーとなるのは起動後にコンテナ内のコマンドを実行しようとした場合で、  
 コンテナ起動やapacheなどのサービスの動作は問題ないようです。
 
-# 原因
+## 原因
 
 docker-composeのバージョン 1.25.2 でエラーが起きる模様です。
 
@@ -59,7 +59,7 @@ docker-composeのバージョン 1.25.2 でエラーが起きる模様です。
 docker desktop for windows が更新（v2.2.0.0：2020/1/21リリース）された際にdocker-composeのバージョンも上がり、この問題が発生するようです。
 
 
-# 環境
+## 環境
 
 - Windows 10 Pro 1903 (18362.592)
 - docker desktop for windows v2.2.0.0 (42247)
@@ -67,7 +67,7 @@ docker desktop for windows が更新（v2.2.0.0：2020/1/21リリース）され
 - docker-compose version 1.25.2, build 698e2846
 
 
-# 解決方法
+## 解決方法
 
 「docker-compose.exe」のバイナリを最新版に置き換えます。
 
@@ -104,7 +104,7 @@ docker-compose version 1.25.3, build d4d1b42b
 root@7bf1597be011:/var/www/html# 
 ```
 
-# 終わりに
+## 終わりに
 
 ユーザ数の多いOSSだとメジャーなバグはすぐに報告が上がって対策されるので良いですね。
 

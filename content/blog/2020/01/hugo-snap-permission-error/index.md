@@ -29,7 +29,7 @@ tags:
 type: "post"
 ---
 
-# はじめに
+## はじめに
 
 HugoはGO言語で作られた静的サイトジェネレーターです。  
 この度ブログを作成しようとHugoをインストールしたところ、プロジェクト作成時に下記エラーに見舞われました。
@@ -40,7 +40,7 @@ Error: Failed to create dir: mkdir /var/lib/snapd/void/myblog: permission denied
 ```
 
 
-# 結論
+## 結論
 
 公式のドキュメントに書いてあったのですが、  
 snapでインストールしたhugoコマンドは、$HOMEか、gvfsでマウントしたディレクトリ以外に書き込めないとのこと。
@@ -50,7 +50,7 @@ snapでインストールしたhugoコマンドは、$HOMEか、gvfsでマウン
 - 参照: https://gohugo.io/getting-started/installing/#snap-package
 
 
-# 環境
+## 環境
 
 
 - OS: Ubuntu 18.04
@@ -91,6 +91,6 @@ Hugoのインストール時のコマンド
 $ sudo snap install hugo --channel=extended 
 ```
 
-# まとめ
+## まとめ
 
 公式の文章はよく読みましょう。

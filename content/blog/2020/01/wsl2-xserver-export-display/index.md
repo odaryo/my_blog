@@ -28,13 +28,13 @@ tags:
 type: "post"
 ---
 
-# はじめに
+## はじめに
 
 WSL2内のアプリをX-Server経由でWindows側にGUI表示させようとして、戸惑った点についてまとめます。
 
 WSL2やX-Serverの設定については割愛します。
 
-# 環境
+## 環境
 
 - ホスト
     - Windows10 Professional
@@ -46,7 +46,7 @@ WSL2の設定などはこちらの記事を参考してください。
 [PhpStorm on WSL2でWindowsに依存しない開発環境を作る](/2020/01/16/docker-on-wsl2-development-environment/)
 
 
-# 遭遇した問題と解決方法
+## 遭遇した問題と解決方法
 
 WSL2のX環境をセットアップして、いざGUI表示しよう！と思ったら表示されない。
 
@@ -86,7 +86,7 @@ VcXsrvを許可する
 。。。動いた！
 
 
-# 終わりに
+## 終わりに
 
 開発環境がすべてWSL2側で完結するので、Windows側にGitやDockerなど入れなくても済むのが良いです。
 

@@ -28,7 +28,7 @@ tags:
 type: "post"
 ---
 
-# はじめに
+## はじめに
 
 DockerfileからNodeコンテナをビルドする際に下記エラーが起きました。
 
@@ -52,7 +52,7 @@ FROM node:12-alpine
 RUN npm install -g yarn
 ```
 
-# 原因と対策
+## 原因と対策
 
 Node.jsコンテナにはyarnがインストール済みなので、再度入れようとしたときにエラーとなります。
 

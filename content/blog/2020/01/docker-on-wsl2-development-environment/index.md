@@ -29,7 +29,7 @@ tags:
 type: "post"
 ---
 
-# はじめに
+## はじめに
 
 WindowsでPHPなどの開発をしていると色々トラブルに見舞われます。  
 
@@ -42,7 +42,7 @@ WSL2やWindows terminalの登場で、端末環境はほぼLinux同等のもの�
 
 今回はWSL2に開発ツールを詰め込みX-Server経由でGUI操作することで、Windowsの依存性を限りなく減らした環境を作成します。
 
-# 補足
+## 補足
 
 VSCodeを使用する場合はX環境を設定しなくても、Remote Develop機能でWSL2内の環境を直接操作できると思います。  
 
@@ -50,7 +50,7 @@ VSCodeを使用する場合はX環境を設定しなくても、Remote Develop�
 
 今回は、X-Server経由でWSL2内のPhpStorm（Intellij IDEA）を利用して開発する環境を設定しました。
 
-# ゴール
+## ゴール
 下記の設定を行います。
 
 - WSL2の有効化
@@ -58,7 +58,7 @@ VSCodeを使用する場合はX環境を設定しなくても、Remote Develop�
 - X-Server設定し、WSL2上のPhpStormを開く
 
 
-# 環境
+## 環境
 
 - ホスト
     - Windows10 Professional
@@ -66,7 +66,7 @@ VSCodeを使用する場合はX環境を設定しなくても、Remote Develop�
 - WSL2
    - Ubuntu 18.04
 
-# 設定手順
+## 設定手順
 
 1. [WSL2の有効化](#１wsl2の有効化)
 1. [X-Serverの設定](#２x-serverの設定)
@@ -76,28 +76,28 @@ VSCodeを使用する場合はX環境を設定しなくても、Remote Develop�
 
 <div id="setting1"></div>
 
-## １．WSL2の有効化
+### １．WSL2の有効化
 
 WSLにUbuntuをインストールして、WSL2を有効化します。
 
-### ① Windows InsiderPreviewのFastリングを導入
+#### ① Windows InsiderPreviewのFastリングを導入
 
 参考： https://insider.windows.com/ja-jp/how-to-pc/
 
-### ② 仮想マシンを有効化
+#### ② 仮想マシンを有効化
 
 
 ```bash
 > Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 ```
 
-### ③ WSLのバージョンを2に変更
+#### ③ WSLのバージョンを2に変更
 
 ```bash
 > wsl --set-version Ubuntu-18.04 2
 ```
 
-### ④ バージョン2になったことを確認
+#### ④ バージョン2になったことを確認
 
 ```bash
 > wsl -l -v
@@ -105,10 +105,10 @@ WSLにUbuntuをインストールして、WSL2を有効化します。
 * Ubuntu-18.04    Running         2
 ```
 
-### 余談
+#### 余談
 端末は[Windows Terminal](https://www.microsoft.com/ja-jp/p/windows-terminal-preview/9n0dx20hk701)を使っています。
 
-## ２．X-Serverの設定
+### ２．X-Serverの設定
 
 下記ページを参考にX-Serverを設定しました。
 
@@ -119,7 +119,7 @@ WSLにUbuntuをインストールして、WSL2を有効化します。
 - [Ubuntu18.04+WSLでfcitx-mozcを使って日本語入力出来るようにする](https://kazblog.hateblo.jp/entry/2018/05/28/221242)
 
 
-### ① X環境のインストール
+#### ① X環境のインストール
 
 参考ページ通りにデスクトップ環境としてMateをインストールします。
 
@@ -129,7 +129,7 @@ $ sudo service dbus start
 $ sudo apt install ubuntu-mate-desktop mate-desktop-environment mate-common mate-core
 ```
 
-### ② WindowsにVcXsrv（XServer）をインストール
+#### ② WindowsにVcXsrv（XServer）をインストール
 
 下記リンクよりダウンロードしてインストールします。
 
@@ -148,7 +148,7 @@ XLaunch（VcXsrvのアプリ名）を起動します。
 一度起動したらそのまま放置しておけば良いですが、  
 毎回設定するのは面倒なので、ショートカットや自動起動の設定をしておくと良いです。
 
-### ③ X環境の動作確認
+#### ③ X環境の動作確認
 
 WSL2側で".bashrc"に下記を追記します。
 
@@ -180,7 +180,7 @@ $ xeyes
 
 [WSL2のX-ServerでGUI表示する際に「export DISPLAY=:0.0」が効かない](/2020/01/08/wsl2-xserver-export-display/)
 
-### ④ 日本語環境のインストール
+#### ④ 日本語環境のインストール
 
 日本語環境として、fcitx-mozcをインストールします。  
 ※色々試し、上手く行った方法をまとめます
@@ -262,11 +262,11 @@ $ fcitx-config-gtk3
 
 <div id="setting3"></div>
 
-# ３．Dockerのインストール
+### ３．Dockerのインストール
 
 下記手順に従ってDocker, Docker Composeをインストールします。
 
-### ① Dockerのインストール
+#### ① Dockerのインストール
 公式サイトを参考にインストールします。
 
 ```bash
@@ -310,7 +310,7 @@ wslconfig /t Ubuntu-18.04
 
 参考： https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-### ② Docker Composeのインストール
+#### ② Docker Composeのインストール
 同様にDocker Composeもインストールします。
 
 ```bash
@@ -328,7 +328,7 @@ docker-compose version 1.25.0, build 0a186604
 
 参考： https://docs.docker.com/compose/install/
 
-### 補足：dockerデーモンの起動について
+#### 補足：dockerデーモンの起動について
 
 WSL2の現バージョンでは、systemdが正しく動かず、デーモンの自動起動が設定できないようです。
 
@@ -343,11 +343,11 @@ $ sudo service docker start
 
 <div id="setting4"></div>
 
-## ４．PhpStormの設定
+### ４．PhpStormの設定
 
 PhpStormのインストールについて説明します。
 
-### ① インストール方法
+#### ① インストール方法
 
 今回はToolboxからインストールしました。
 
@@ -370,7 +370,7 @@ $ jetbrains-toolbox
 VcXsrvを立ち上げているとGUIが起動します。  
 その後、アプリよりインストールしてください。
 
-### ② PhpStormの設定
+#### ② PhpStormの設定
 開発言語に合わせて設定してください。
 
 Git、Docker、Node.jsなどはインストール後に設定を開くと自動で認識して設定されます。
@@ -383,9 +383,9 @@ $ sudo apt install fonts-ricty-diminished
 
 <div id="setting5"></div>
 
-## ５．その他ツールのインストール
+### ５．その他ツールのインストール
 
-### Node.js
+#### Node.js
 
 IDEからLinterツールなどを実行するにはローカルにNode.jsをインストールしていたほうが都合がよいため、インストールします。
 
@@ -417,7 +417,7 @@ $ yarn -v
 1.21.1
 ```
 
-### Fish Shell
+#### Fish Shell
 シェルにfishをインストールします。  
 コマンドやディレクトリ名の補完機能が便利です。
 
@@ -493,7 +493,7 @@ end
 > source ~/.config/fish/config.fish
 ```
 
-# 使用感について
+## 使用感について
 
 たまにX環境が落ちることがありますが、おおむね快適に動作します。  
 また、Docker for windowsで作業していたときよりもビルド速度が上がっているようなので（体感）、精神的にも安心です。
@@ -511,7 +511,7 @@ $ fcitx-autostart
 
 しばらく使ってまた追記します。
 
-# 終わりに
+## 終わりに
 
 WSL2を使った開発環境について記載しました。
 

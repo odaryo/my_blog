@@ -23,6 +23,7 @@ categories:
 tags:
   - "コマンド"
   - "Linux"
+  - "SSH"
 
 # post type
 type: "post"
@@ -34,15 +35,15 @@ sshやsftpなどのコマンドで他のサーバーに接続できますが、�
 
 こんな時は「~/.ssh/config」を設定すると快適に実行できます。
 
-# 概要
+## 概要
 
 ~/.ssh/configに接続設定を書いてコマンド短縮
 
-# ~/.ssh/configって？
+## ~/.ssh/configって？
 
 sshでリモートサーバーに接続するときに使用する設定ファイルです
 
-# ~/.ssh/configを使わない場合
+## ~/.ssh/configを使わない場合
 
 configファイルを使わない場合は下記のように接続するか、
 
@@ -151,7 +152,7 @@ $ ssh sv2
 
 特に意識せず、簡単に接続できます。
 
-# おまけ：PhpStormの設定
+## おまけ：PhpStormの設定
 
 PhoStorm（IntelliJ IDEA）でもconfigファイルの設定を利用できます。
 
@@ -193,13 +194,13 @@ Hostは踏み台サーバーを経由した接続も設定可能です。
 ![config4](img-04.png)
 
 
-# まとめ
+## まとめ
 
 「~/.ssh/config」は色々な接続設定を管理できるので便利です。
 
 また、ほかのファイルから設定をIncludeできるので、チーム内での設定共有にも使えるかも。
 
-# 参考資料
+## 参考資料
 
 - [~/.ssh/configについて - Qiita](https://qiita.com/passol78/items/2ad123e39efeb1a5286b:title)
 - [~/.ssh/config による快適 SSH 環境 - Qiita](https://qiita.com/oohira/items/7deae31469cfbbd740c1:title)

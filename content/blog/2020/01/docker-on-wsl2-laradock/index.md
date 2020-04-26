@@ -31,7 +31,7 @@ tags:
 type: "post"
 ---
 
-# はじめに
+## はじめに
 
 WSL2内にインストールしたDocker＋Laradockを利用して、Laravelの開発環境を作成する手順をメモします。
 
@@ -40,12 +40,12 @@ WSL2やDockerの設定はこちらの記事を参照してください。
 [https://odaryo.hatenablog.com/entry/2020/01/16/214830:embed:cite]
 
 
-# ゴール
+## ゴール
 
 - Laradockの設定と起動
 - laravelのインストール
 
-# ディレクトリ構成
+## ディレクトリ構成
 
 こちらの構造で設定します。
 
@@ -65,7 +65,7 @@ dockerコンテナ内にlaradockを持ち込みたくないのでこの構成に
 
 https://qiita.com/wajima/items/69fad6c2b42c52928e82
 
-# 想定環境
+## 想定環境
 
 今回は、下記のように設定しました。
 
@@ -77,13 +77,13 @@ https://qiita.com/wajima/items/69fad6c2b42c52928e82
 各ミドルウェアのバージョンはデフォルト設定のまま使っています。  
 latestで指定するとビルド時点の最新版が入るため、チームで環境をそろえたい場合などは.envファイルにバージョンを明記します。
 
-# 設定方法
+## 設定方法
 
-## １．Laradockの設定
+### １．Laradockの設定
 
 下記はWSL2で行います。
 
-### ① プロジェクトディレクトリの作成
+#### ① プロジェクトディレクトリの作成
 
 プロジェクトディレクトリと、appディレクトリを作成します。
 
@@ -98,20 +98,20 @@ $ cd <project_dir>
 $ mkdir app
 ```
 
-### ② laradockをダウンロード
+#### ② laradockをダウンロード
 
 ```bash
 $ git clone  https://github.com/Laradock/laradock.git
 ```
 
-### ③ 設定ファイルのコピー
+#### ③ 設定ファイルのコピー
 
 ```bash
 $ cd laradock
 $ cp env-example .env
 ```
 
-### ④ 設定ファイル（.env）の編集
+#### ④ 設定ファイル（.env）の編集
 
 .envにはディレクトリの場所や、インストールされるミドルウェア（nginxやmysqlなど）のバージョンなど、いろいろな設定を記載することができます。  
 この.envファイルの編集だけで、様々な環境に対応できるのがLaradockの強みだと思っております。
@@ -120,7 +120,7 @@ $ cp env-example .env
 $ vi .env
 ```
 
-#### １．laravelディレクトリを設定
+##### １．laravelディレクトリを設定
 
 好みの問題ですが、今回の構成に合わせて修正します。
 
@@ -129,7 +129,7 @@ $ vi .env
 + APP_CODE_PATH_HOST=../app/
 ```
 
-#### ２．データの保存ディレクトリを変更
+##### ２．データの保存ディレクトリを変更
 
 デフォルトでは、ホームディレクトリに保存されてしまいます。  
 このままでは、ほかのプロジェクトデータで上書きされるかもしれませんので、プロジェクト内に作成するよう変更します。
@@ -139,7 +139,7 @@ $ vi .env
 + DATA_PATH_HOST=.laradock/data
 ```
 
-#### ３．プロジェクト名の設定
+##### ３．プロジェクト名の設定
 
 laradockを使ったプロジェクトを複数作る場合、プロジェクト名が同じ場合、過去に作った同じ名前のコンテナイメージが上書きされてしまいます。  
 後々面倒なことになるため、必ず被らない名前を設定してください。
@@ -149,7 +149,7 @@ laradockを使ったプロジェクトを複数作る場合、プロジェクト
 + COMPOSE_PROJECT_NAME=<project_name>
 ```
 
-#### ４．ユーザID、グループIDを設定
+##### ４．ユーザID、グループIDを設定
 
 WSL側とDocker側でユーザIDが異なると、Linuxではファイルの編集ができなくなります。
 
@@ -170,7 +170,7 @@ $ id
 uid=1000(***) gid=1000(***) ....
 ```
 
-#### ５．ポート設定
+##### ５．ポート設定
 
 複数プロジェクトのDockerを起動する場合、ポートが被ることがあります。  
 環境に合わせて変更してください。
@@ -184,7 +184,7 @@ MARIADB_PORT=3306
 PMA_PORT=8080
 ```
 
-### ⑤ その他の設定
+#### ⑤ その他の設定
 
 <b>１．MySQL設定</b>
 
@@ -197,7 +197,7 @@ MySQLは8系になってパスワードの生成方法が変わりそのまま�
 default_authentication_plugin=mysql_native_password
 ```
 
-## ２．laradockの起動
+### ２．laradockの起動
 
 下記コマンドでlaradockを起動します。
 引数には起動したいミドルウェアを指定します。
@@ -220,12 +220,12 @@ laradock_test_phpmyadmin_1         /docker-entrypoint.sh apac ...   Up      0.0.
 laradock_test_workspace_1          /sbin/my_init                    Up      0.0.0.0:2222->22/tcp
 ```
 
-## ３．Laravelのインストールと初期設定
+### ３．Laravelのインストールと初期設定
 
 ここでは、dockerコンテナ内からlaravelをインストールする方法と、  
 簡単な設定を行います。
 
-### ① インストール
+#### ① インストール
 
 下記コマンドでWorkspaceコンテナに入ります。  
 この時、```user```オプションでユーザを指定してください。
@@ -249,9 +249,9 @@ Windows側のブラウザで、```http://localhost```にアクセスします。
 
 ![Laravel](img-01.png)
 
-### ② 設定ファイルの編集
+#### ② 設定ファイルの編集
 
-#### １．.envの設定
+##### １．.envの設定
 
 laravelの.envファイルの設定を変更します。
 
@@ -275,7 +275,7 @@ DB_PASSWORD=secret
 
 ![phpMyAdmin](img-02.png)
 
-#### ２．マイグレーションの確認
+##### ２．マイグレーションの確認
 
 MySQLの設定が完了したか、マイグレーションで確認してみましょう。
 
@@ -292,15 +292,15 @@ Migrating: 2019_08_19_000000_create_failed_jobs_table
 Migrated:  2019_08_19_000000_create_failed_jobs_table (0.1 seconds)
 ```
 
-#### その他
+##### その他
 
 他にも言語やタイムゾーンの設定、ディレクトリ構成を変えるなどいろいろなカスタマイズがあるかと思いますが、ここでは割愛します。
 
-### ③ Laravel-mixの動作確認
+#### ③ Laravel-mixの動作確認
 
 Vue.jsの設定とビルド、ホットリロードの確認を行います。
 
-#### Vue.jsを利用する設定
+##### Vue.jsを利用する設定
 
 Laravel 6.0からデフォルトではインストールされないため、laravel/uiからインストールします。
 
@@ -309,7 +309,7 @@ Laravel 6.0からデフォルトではインストールされないため、lar
 /var/www$ php artisan ui vue
 ```
 
-#### node_modulesのインストール
+##### node_modulesのインストール
 
 ```bash
 /var/www$ yarn
@@ -318,7 +318,7 @@ Laravel 6.0からデフォルトではインストールされないため、lar
 その後、```yarn dev```や```yarn watch```でビルドできます。
 
 
-# 終わりに
+## 終わりに
 
 WSL2を利用したLaravelの開発環境についてまとめました。
 

@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-4 sidebar">
   <!-- profile -->
   <div class="widget">
     <h4 class="widget-title">Profile</h4>
@@ -16,9 +16,9 @@
     <h4 class="widget-title">Tag</h4>
     {{- if isset .Site.Taxonomies "tags" }}
     {{- if not (eq (len .Site.Taxonomies.tags) 0) }}
-    <ul class="list-inline">
+    <ul class="list-inline side-tag">
       {{- range $name, $items := .Site.Taxonomies.tags }}
-      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+      <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white side-tag__item"
                                       href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a></li>
       {{- end }}
     </ul>

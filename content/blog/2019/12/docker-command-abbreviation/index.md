@@ -23,7 +23,7 @@ tags:
 type: "post"
 ---
 
-# はじめに
+## はじめに
 
 今のプロジェクトではDocker Composeを使って環境構築しています。
 
@@ -37,7 +37,7 @@ type: "post"
 下記記事を参考にしています。感謝  
 [Docker コマンドのショートカットをプロジェクトルートに置いたら快適になった - Qiita](https://qiita.com/acro5piano/items/740ea0726be6a745333d:title)
 
-# ファイル構成
+## ファイル構成
 
 Linux（Bash）とWindows（PowerShell）の両方に対応できるよう作成しています。
 
@@ -55,7 +55,7 @@ Linux（Bash）とWindows（PowerShell）の両方に対応できるよう作成
 └－ docker-compose.yml
 ```
 
-## bash用
+### bash用
 
 - bin/doc.sh
 
@@ -103,7 +103,7 @@ echo $cmd
 $cmd
 ```
 
-## powershell用
+### powershell用
 
 - bin/doc.ps1
 
@@ -132,7 +132,7 @@ invoke-expression $cmd
 - bin/composer.ps1  
 ※artisan.ps1とほぼ同じため省略
 
-# 使い方
+## 使い方
 
 プロジェクトルートに移動して下記コマンドを実行
 
