@@ -1,3 +1,4 @@
+@import 'mixins';
 
 img {
   max-width: 100%;
@@ -16,6 +17,7 @@ img {
 
 .section {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .outer-link {
@@ -37,8 +39,47 @@ img {
 // 記事ページのprev, nextリンク
 .prev-next {
   display: flex;
+  align-items: center;
+  flex-direction: row;
 
-  &__prev{
+  @include mobile() {
+    margin: 0 5px 10px;
+  }
+
+  &__area {
+    margin-bottom: 40px;
+  }
+
+  &.card {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+  }
+
+  &__prev {
     margin-left: 10px;
+    padding: 10px 5px 10px 0;
+
+    @include mobile() {
+      padding: 5px 5px 5px 0;
+    }
+  }
+
+  &__next {
+    margin-left: 10px;
+    padding: 10px 0px 10px 5px;
+
+    @include mobile() {
+      padding: 5px 5px 5px 0;
+    }
+  }
+
+  &__prev--mark, &__next--mark {
+    transform: scale(0.5, 1);
+    font-size: 2rem;
+    font-weight: 100;
+  }
+
+  a {
+    color: #222;
   }
 }

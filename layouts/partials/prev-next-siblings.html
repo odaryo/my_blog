@@ -20,21 +20,25 @@
     {{ end }}
 
     {{/* 見つかった prev と next のリンクを表示 */}}
-    <div class="row">
-        <div class="col-lg-6 prev-next">
+    <div class="row prev-next__area">
+        <div class="col-lg-6">
         {{- with ($.Scratch.Get "prev") -}}
-        <span class="prev-next__prev--mark"><<</span>
-        <span class="prev-next__prev">
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </span>
+            <div class="card prev-next">
+                <span class="prev-next__prev--mark"><<</span>
+                <span class="prev-next__prev">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </span>
+            </div>
         {{- end -}}
         </div>
-        <div class="col-lg-6 prev-next">
+        <div class="col-lg-6">
         {{- with ($.Scratch.Get "next") -}}
-        <span class="prev-next__next">
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </span>
-        <span class="prev-next__next--mark">>></span>
+            <div class="card prev-next">
+                <span class="prev-next__next">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </span>
+                <span class="prev-next__next--mark">>></span>
+            </div>
         {{- end -}}
         </div>
     </div>

@@ -92,7 +92,7 @@ googleAnalitycsID = "UA-162930580-1"
 email = "odaryo@gmail.com"
 location = ""
 # copyright
-copyright = "| copyright &copy; 2020 [Themefisher](https://themefisher.com) All Rights Reserved |"
+copyright = "copyright &copy; 2020 odaryo All Rights Reserved"
 
   # Preloader
   [params.preloader]
