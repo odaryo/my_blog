@@ -1,6 +1,6 @@
 ---
 title: "How To Use Checklists To Improve Your UX"
-date: 2020-04-23T10:07:47+06:00
+date: 2020-12-31T23:59:59+06:00
 draft: true
 
 # post thumb
