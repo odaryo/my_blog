@@ -116,18 +116,20 @@ WSLにUbuntuをインストールして、WSL2を有効化します。
 
 - [WSLでIntelliJを動かして、Windowsでも最高の開発環境を手に入れる](https://bbq-all-stars.github.io/2019/04/30/wsl-ubuntu-intellij-develop-environment.html)
 - [WSL で Ubuntu デスクトップ環境を作ってみる](https://tmtms.hatenablog.com/entry/201812/wsl-ubuntu)
+- [WSL2 Ubuntu 18.04 に GNOME + Fcitx-Mozc を導入して日本語デスクトップ環境を構築する最終解](https://kazblog.hateblo.jp/entry/2018/05/28)
 - [Ubuntu18.04+WSLでfcitx-mozcを使って日本語入力出来るようにする](https://kazblog.hateblo.jp/entry/2018/05/28/221242)
-
 
 #### ① X環境のインストール
 
-参考ページ通りにデスクトップ環境としてMateをインストールします。
+少しでも軽いものをと思い、軽量デスクトップ環境のXfceを選択しました。
 
 ```bash
 $ sudo apt update && sudo apt upgrade -y
-$ sudo service dbus start
-$ sudo apt install ubuntu-mate-desktop mate-desktop-environment mate-common mate-core
+$ sudo apt install -y xfce4-terminal xfce4-session xfce4
 ```
+
+※途中、ログインマネージャの選択（GDMとLightDM）が出ますが、おそらくどちらでも構いません。  
+私はLightDMを選びました。
 
 #### ② WindowsにVcXsrv（XServer）をインストール
 
