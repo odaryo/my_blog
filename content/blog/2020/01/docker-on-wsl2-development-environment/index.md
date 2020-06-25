@@ -404,9 +404,13 @@ Node.js（LTS）のインストール
 $ nvm install --lts
 ```
 
-ついでにyarnもインストール
+ついでにyarnもインストール  
+※指定したnodeのバージョン配下を指定してインストールする
 
 ```bash
+$ node -v
+v12.14.1
+$ nvm use 12.14.1
 $ npm install -g yarn
 ```
 
