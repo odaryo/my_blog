@@ -3,6 +3,7 @@
 
 title: "nuxt.jsのbuildでcore-jsのエラーが出る"
 date: 2019-12-10T15:45:59+09:00
+lastmod: 2020-06-26T15:52:41+09:00
 featured: false
 draft: false
 
@@ -27,6 +28,10 @@ tags:
 # post type
 type: "post"
 ---
+
+※ issueを再確認すると別の解法のレスがあったので追記します。（2020/06/26追記）
+
+# エラーの内容
 
 Nuxt.js + Vuetifyの環境でbuildすると、下記のようなエラーが出るようになりました。
 
@@ -96,13 +101,17 @@ Module not found: Error: Can't resolve 'core-js/modules/web.dom.iterable' in '/a
 error Command failed with exit code 1.
 ```
 
+# 対策
+
+## 対策①
 モジュールを最新にしても解決せず。
 
 調べているとこんなissueが上がっていました。
 
 https://github.com/nuxt/nuxt.js/issues/5287
 
-core-jsが3.xになるとエラーが起きるらしい。
+core-jsが3.xになるとエラーが起きるらしいです。
+
 
 2系の最新版(2019/12/10時点)をインストールするように明記
 
@@ -116,4 +125,51 @@ $ yarn build
 
 成功！
 
-ビルドするとcore-jsを3系にしろとwarningが出るようになったので対策を考えないと。。。
+~~ビルドするとcore-jsを3系にしろとwarningが出るようになったので対策を考えないと。。。~~
+
+
+▽=== 2020/06/25追記 ===▽
+
+## 対策②
+
+https://github.com/nuxt/nuxt.js/issues/5287#issuecomment-622660147 に別の解法が載っていました。  
+こちらだとcore-js 3.xにあげても問題なく動作します。
+
+
+nuxt.config.jsに下記を追加
+
+
+```javascript
+export default {
+  build: {
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            require.resolve('@nuxt/babel-preset-app'),
+            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
+            {
+              buildTarget: isServer ? 'server' : 'client',
+              corejs: { version: 3 }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
+```
+
+package.jsonに「core-js」を追加していたら、記述を削除  
+（package.jsonに明示的に書かなくても問題ありません。）
+
+下記の依存関係の確認でも古いバージョンを使っていると怒られなくなりました。
+
+```bash
+$ yarn outdated
+```
+
+なお、このやり方はNuxt.js v2.6.0時点のリリースノートに書かれているようです。
+
+△=== 2020/06/25追記 ===△
+
