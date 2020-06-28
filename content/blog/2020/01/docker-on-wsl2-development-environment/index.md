@@ -180,7 +180,7 @@ $ xeyes
 
 設定の詳細については下記を参照してください。
 
-[WSL2のX-ServerでGUI表示する際に「export DISPLAY=:0.0」が効かない](/2020/01/08/wsl2-xserver-export-display/)
+[WSL2のX-ServerでGUI表示する際に「export DISPLAY=:0.0」が効かない](/blog/2020/01/wsl2-xserver-export-display/)
 
 #### ④ 日本語環境のインストール
 

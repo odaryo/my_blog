@@ -43,7 +43,7 @@ WSL2やX-Serverの設定については割愛します。
 
 WSL2の設定などはこちらの記事を参考してください。
 
-[PhpStorm on WSL2でWindowsに依存しない開発環境を作る](/2020/01/16/docker-on-wsl2-development-environment/)
+[PhpStorm on WSL2でWindowsに依存しない開発環境を作る](/blog/2020/01/docker-on-wsl2-development-environment/)
 
 
 ## 遭遇した問題と解決方法

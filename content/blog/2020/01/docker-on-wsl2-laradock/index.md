@@ -37,7 +37,7 @@ WSL2内にインストールしたDocker＋Laradockを利用して、Laravelの�
 
 WSL2やDockerの設定はこちらの記事を参照してください。
 
-[https://odaryo.hatenablog.com/entry/2020/01/16/214830:embed:cite]
+[PhpStorm on WSL2でWindowsに依存しない開発環境を作る](/blog/2020/01/docker-on-wsl2-development-environment/)
 
 
 ## ゴール
