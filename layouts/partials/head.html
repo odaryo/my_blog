@@ -8,6 +8,8 @@
   {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}
 
+  {{ partial "head/ogp" . }}
+
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range .Site.Params.plugins.css }}
   <link rel="stylesheet" href="{{ .URL | absURL }} ">
@@ -23,5 +25,6 @@
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon">
+
 
 </head>

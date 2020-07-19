@@ -15,7 +15,7 @@ archives:
   - "2020/01"
 
 # meta description
-description: "this is meta description"
+description: "Windows10 + WSL2な環境でIDEにPhpStormを利用する方を対象に、すべての作業をWSL上で完結できる、Windowsに依存しない環境構築方法をまとめます。"
 
 # taxonomies
 categories:
