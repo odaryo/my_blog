@@ -28,4 +28,4 @@ archives:
 type: "post"
 ---
 
-# はじめに
+## はじめに

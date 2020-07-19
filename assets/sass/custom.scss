@@ -10,12 +10,15 @@ img {
 }
 
 h1, .h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 h2, .h2 {
   font-size: 1.6rem;
   font-weight: bold;
+  border-bottom: 1px solid #00aaa1;
+  padding-bottom: 0.1em;
+  margin-bottom: 1.3rem !important;
 }
 
 h3, .h3 {
@@ -32,6 +35,11 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 1.1rem;
+}
+
+p, .paragraph {
+  font-size: 1rem !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .navbar-brand {
