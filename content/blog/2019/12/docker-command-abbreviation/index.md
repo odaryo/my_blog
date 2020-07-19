@@ -11,7 +11,7 @@ draft: false
 image: "images/post/post_docker.svg"
 
 # meta description
-description: "this is meta description"
+description: ""
 
 # taxonomies
 categories: 

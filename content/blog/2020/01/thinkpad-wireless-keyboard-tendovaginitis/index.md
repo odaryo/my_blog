@@ -15,7 +15,7 @@ archives:
   - "2020/01"
 
 # meta description
-description: "this is meta description"
+description: ""
 
 # taxonomies
 categories:
