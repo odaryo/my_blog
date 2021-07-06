@@ -11,7 +11,7 @@ draft: false
 image: "images/post/post_docker.svg"
 
 # meta description
-description: ""
+description: "WSL2などのLinux系システムで、Dockerでファイルのパーミッションをホストユーザと合わせる方法を説明します。"
 
 # taxonomies
 categories: 

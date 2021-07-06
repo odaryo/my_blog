@@ -15,7 +15,8 @@ archives:
   - "2020/01"
 
 # meta description
-description: ""
+description: "Nuxt.js+TypescriptのソースがIntelliJ IDEAで「Ts1219」Warningがでる場合の解決方法を述べます
+"
 
 # taxonomies
 categories:

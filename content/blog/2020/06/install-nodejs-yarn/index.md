@@ -11,7 +11,7 @@ draft: false
 image: "images/post/post_linux.svg"
 
 # meta description
-description: ""
+description: "nvmを使ったYarnのインストール方法"
 
 # taxonomies
 categories: 

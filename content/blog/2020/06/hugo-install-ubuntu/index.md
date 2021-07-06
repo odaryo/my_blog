@@ -11,7 +11,7 @@ draft: false
 image: "images/post/post_hugo.svg"
 
 # meta description
-description: "UbuntuへHugoをインストールする手順"
+description: "UbuntuへHugoをインストールする手順を説明します"
 
 # taxonomies
 categories: 

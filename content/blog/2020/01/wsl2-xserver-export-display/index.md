@@ -15,7 +15,7 @@ archives:
   - "2020/01"
 
 # meta description
-description: ""
+description: "WSL2のX-ServerでGUI表示する際に「export DISPLAY=:0.0」が効かない場合の対応"
 
 # taxonomies
 categories:

@@ -11,18 +11,18 @@ draft: false
 image: "images/post/post_nuxt.svg"
 
 # meta description
-description: ""
+description: "Nuxt.jsを使った静的環境で、nuxt generateをしてもページが作成されない場合の対応"
 
 # taxonomies
-categories: 
-  - ""
+categories:
+  - "Nuxt.js"
 
 tags:
-  - ""
+  - "Nuxt.js"
 
 archives:
-  - "2021"
-  - "2021/07"
+  - "2020"
+  - "2020/03"
 
 # post type (post, featured)
 type: "post"
